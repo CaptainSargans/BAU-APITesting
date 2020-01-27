@@ -1,0 +1,48 @@
+{
+	"info": {
+		"_postman_id": "6e2a39db-862a-4ca4-baf3-e9293b08399d",
+		"name": "BAUTeam-API-Testing_UAT",
+		"description": "API-Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "UBX UAT - IPmanagement-api",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ignore-auth",
+						"type": "text",
+						"value": "true"
+					}
+				],
+				"url": "http://ip-management-api-UAT.us-east-1.elasticbeanstalk.com/ipauth/party/100/ips"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "77bccf51-c86f-41b5-805c-40228d576513",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "fd84a399-dfee-4c49-927a-87482e7e3215",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
