@@ -1,0 +1,316 @@
+{
+	"info": {
+		"_postman_id": "e525969f-604e-444d-961d-8c68ca2d8ca3",
+		"name": "BAUTeam-API-Testing_Prod",
+		"description": "API-Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "UBX Prod - IPmanagement-api",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ignore-auth",
+						"type": "text",
+						"value": "true"
+					}
+				],
+				"url": "http://ip-management-api-prod.us-east-1.elasticbeanstalk.com/ipauth/party/100/ips"
+			},
+			"response": []
+		},
+		{
+			"name": "UBX  Prod - API Test - Product Validation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3b6824b8-004c-4aad-97e6-bcbaf86fb51c",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"response should be okay to process\", function () {\r",
+							"    pm.response.to.not.be.error;\r",
+							"//    pm.response.to.have.jsonBody(\"\");\r",
+							"    pm.response.to.not.have.jsonBody(\"error\");\r",
+							"})\r",
+							"\r",
+							"pm.test(\"response must be valid and have a body\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"pm.test(\"Check if object contains the property : status \",function () {\r",
+							"      pm.expect('status').to.have.string('status');\r",
+							"  });\r",
+							"\r",
+							"pm.test(\"Check if object contains the property : eIsbn \",function () {\r",
+							"      pm.expect('eIsbn').to.have.string('eIsbn');\r",
+							"  });\r",
+							"\r",
+							"pm.test(\"Check if object contains the property : doi \",function () {\r",
+							"      pm.expect('doi').to.have.string('doi');\r",
+							"  });\r",
+							"\r",
+							"pm.test(\"Check if object contains the property : dacKey \",function () {\r",
+							"      pm.expect('dacKey').to.have.string('dacKey');\r",
+							"  });\r",
+							"\r",
+							"pm.test(\"Check if object contains the property : drmStatus \",function () {\r",
+							"      pm.expect('drmStatus').to.have.string('drmStatus');\r",
+							"  });\r",
+							"\r",
+							"pm.test(\"Check if pattern is in target string\",function () {\r",
+							"      pm.expect('success').to.have.string('succ');\r",
+							"});\r",
+							"  \r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json(); \r",
+							"pm.test(\"Verify Json values\", function () { \r",
+							"    pm.expect(jsonData.metadata.status).is.to.equal(\"success\"); \r",
+							"   // pm.expect(jsonData.data.versionTypeCode).is.to.equal(\"EBK\"); \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ignore-auth",
+						"type": "text",
+						"value": "true"
+					}
+				],
+				"url": {
+					"raw": "http://product-api-prod-v2.us-east-1.elasticbeanstalk.com/products/titles/?responseType=validation&isbns=9781315201955",
+					"protocol": "http",
+					"host": [
+						"product-api-prod-v2",
+						"us-east-1",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"products",
+						"titles",
+						""
+					],
+					"query": [
+						{
+							"key": "responseType",
+							"value": "validation"
+						},
+						{
+							"key": "isbns",
+							"value": "9781315201955"
+						}
+					]
+				},
+				"description": " For Librarians -- Available on Taylor & Francis eBooks >> "
+			},
+			"response": []
+		},
+		{
+			"name": "Prod CRC & HSS - authors.taylorandfrancis.com",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bd6e1767-604b-4f1c-9896-07eddf6b2a54",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"response should be okay to process\", function () {\r",
+							"    pm.response.to.not.be.error;\r",
+							"   // pm.response.to.have.jsonBody(\"\");\r",
+							"    pm.response.to.not.have.jsonBody(\"error\");\r",
+							"})\r",
+							"\r",
+							"pm.test(\"response must be valid and have a body\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check if object contains the property\", function () {\r",
+							"     pm.expect({\"ServiceName\": \"\"}).to.have.property('ServiceName');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check if object contains the property\", function () {\r",
+							"     pm.expect({\"StatusMessage\": \"\"}).to.have.property('StatusMessage');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check if object contains the property\", function () {\r",
+							"     pm.expect({\"Status\": \"\"}).to.have.property('Status');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check if object contains the property\", function () {\r",
+							"     pm.expect({\"Data\": \"\"}).to.have.property('Data');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check if pattern is in target string\",function () {\r",
+							"      pm.expect('OK').to.have.string('OK');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000);\r",
+							"});  \r",
+							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json(); \r",
+							"pm.test(\"Verify Json values\", function () { \r",
+							"    pm.expect(jsonData.ServiceName).is.to.equal(\"ws-featured-authors-get-token\"); \r",
+							"    pm.expect(jsonData.StatusMessage).is.to.equal(null); \r",
+							"    pm.expect(jsonData.Status).is.to.equal(\"OK\"); \r",
+							"   // pm.expect(jsonData.Data).is.to.equal(\"token\":\"638fc2d8d5f7d94f0b6eb1ad5021d4e8\"); \r",
+							"   // pm.expect(jsonData.StatusMessage).is.to.equal(null); \r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "appsecret",
+							"value": "8u3vEmxZyJxRhW8WIkAW66Np988r3Zlc",
+							"type": "text"
+						}
+					]
+				},
+				"url": "https://authors.taylorandfrancis.com/services/ws-featured-authors-get-token"
+			},
+			"response": []
+		},
+		{
+			"name": "UBX Prod - Routledge API",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d781f50e-5901-49ca-9383-5d0a714c9a71",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response should be okay to process\", function () {",
+							"    pm.response.to.not.be.error;",
+							"  //  pm.response.to.have.jsonBody(\"\");",
+							"    pm.response.to.not.have.jsonBody(\"error\");",
+							"})",
+							"",
+							"",
+							"pm.test(\"response must be valid and have a body\", function () {",
+							"     pm.response.to.be.ok;",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"",
+							"pm.test(\"Check if object contains the property\", function () {",
+							"     pm.expect({\"name\": \"\"}).to.have.property('name');",
+							"});",
+							"",
+							"pm.test(\"Check if object contains the property\", function () {",
+							"     pm.expect({\"description\": \"\"}).to.have.property('description');",
+							"});",
+							"",
+							"pm.test(\"Check if object contains the property\", function () {",
+							"     pm.expect({\"baseUnit\": \"\"}).to.have.property('baseUnit');",
+							"});",
+							"",
+							"pm.test(\"Check if object contains the property\", function () {",
+							"     pm.expect({\"measurements\": \"\"}).to.have.property('measurements');",
+							"});",
+							"",
+							"",
+							"pm.test(\"Check if pattern is in target string\",function () {",
+							"      pm.expect('VALUE').to.have.string('VALU');",
+							"  });  ",
+							"  ",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000);",
+							"});  ",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"var jsonData = pm.response.json(); ",
+							"pm.test(\"Verify Json values\", function () { ",
+							"    pm.expect(jsonData.name).is.to.equal(\"jvm.threads.peak\"); ",
+							"    pm.expect(jsonData.baseUnit).is.to.equal(\"threads\"); ",
+							" //   pm.expect(jsonData.description).is.to.equal(\"jvmThe peak live thread count since the Java virtual machine started or peak was reset\"); ",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://nlb-use1-ap-pe-df-psra-prod-95ca38b612626c8a.elb.us-east-1.amazonaws.com/actuator/metrics/jvm.threads.peak"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "77bccf51-c86f-41b5-805c-40228d576513",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "fd84a399-dfee-4c49-927a-87482e7e3215",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
