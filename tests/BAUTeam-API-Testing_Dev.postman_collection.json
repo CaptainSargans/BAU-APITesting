@@ -1,0 +1,274 @@
+{
+	"info": {
+		"_postman_id": "b9f37729-c4b0-4d45-9e10-df1b5bbb2f75",
+		"name": "BAUTeam-API-Testing_Dev",
+		"description": "API-Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "UBX  Dev - API Test - Product Validation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "83dfe193-749f-4685-b159-2d26d635b917",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"response should be okay to process\", function () {\r",
+							"    pm.response.to.not.be.error;\r",
+							"//    pm.response.to.have.jsonBody(\"\");\r",
+							"    pm.response.to.not.have.jsonBody(\"error\");\r",
+							"})\r",
+							"\r",
+							"pm.test(\"response must be valid and have a body\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check if pattern is in target string : eIsbn\",function () {\r",
+							"      pm.expect('eIsbn').to.have.string('eIsbn');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check if pattern is in target string : doi\",function () {\r",
+							"      pm.expect('doi').to.have.string('doi');\r",
+							"});\r",
+							"  \r",
+							"pm.test(\"Check if pattern is in target string : dacKey\",function () {\r",
+							"      pm.expect('dacKey').to.have.string('dacKey');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check if pattern is in target string : success\",function () {\r",
+							"      pm.expect('success').to.have.string('success');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json(); \r",
+							"pm.test(\"Verify Json values\", function () { \r",
+							"    pm.expect(jsonData.metadata.status).is.to.equal(\"success\"); \r",
+							"   // pm.expect(jsonData.data.versionTypeCode).is.to.equal(\"EBK\"); \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ignore-auth",
+						"value": "true"
+					}
+				],
+				"url": {
+					"raw": "http://product-api-dev.us-east-1.elasticbeanstalk.com/products/titles/?responseType=validation&isbns=9780203085370",
+					"protocol": "http",
+					"host": [
+						"product-api-dev",
+						"us-east-1",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"products",
+						"titles",
+						""
+					],
+					"query": [
+						{
+							"key": "responseType",
+							"value": "validation"
+						},
+						{
+							"key": "isbns",
+							"value": "9780203085370"
+						}
+					]
+				},
+				"description": " For Librarians -- Available on Taylor & Francis eBooks >> "
+			},
+			"response": []
+		},
+		{
+			"name": "UBX Dev - Elastic bean search API - PAPI",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8f5afbad-9d22-4f1c-8361-e50ad5df4224",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"response should be okay to process\", function () {\r",
+							"    pm.response.to.not.be.error;\r",
+							"//    pm.response.to.have.jsonBody(\"\");\r",
+							"    pm.response.to.not.have.jsonBody(\"error\");\r",
+							"})\r",
+							"\r",
+							"pm.test(\"response must be valid and have a body\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check if pattern is in target string : eIsbn\",function () {\r",
+							"      pm.expect('eIsbn').to.have.string('eIsbn');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check if pattern is in target string : doi\",function () {\r",
+							"      pm.expect('doi').to.have.string('doi');\r",
+							"});\r",
+							"  \r",
+							"pm.test(\"Check if pattern is in target string : dacKey\",function () {\r",
+							"      pm.expect('dacKey').to.have.string('dacKey');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check if pattern is in target string : success\",function () {\r",
+							"      pm.expect('success').to.have.string('success');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json(); \r",
+							"pm.test(\"Verify Json values\", function () { \r",
+							"    pm.expect(jsonData.metadata.status).is.to.equal(\"success\"); \r",
+							"   // pm.expect(jsonData.data.versionTypeCode).is.to.equal(\"EBK\"); \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ignore-auth",
+						"value": "true"
+					}
+				],
+				"url": "http://product-api-dev.us-east-1.elasticbeanstalk.com/products/titles/9780203051450",
+				"description": " For Librarians -- Available on Taylor & Francis eBooks >> "
+			},
+			"response": []
+		},
+		{
+			"name": "UBW Dev - Auth user login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ignore-auth",
+						"value": "true",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"mahadev.sannabilagi@informa.com\",\r\n  \"password\": \"Informa@123\",\r\n  \"isRememberMe\": false,\r\n  \"clientId\": \"41dbb0422c948e7ef51a11698ff2ad1d9988b5c6cde02073023eaa7d47ece20e\"\r\n}"
+				},
+				"url": "https://api-dev.taylorandfrancis.com/v2/auth/user/auth/login"
+			},
+			"response": []
+		},
+		{
+			"name": "UBX Dev - IPmanagement-api",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "80ef27c1-32ce-462b-80c3-7f34d5b77cae",
+						"exec": [
+							"pm.test(\"Check if pattern is in target string : dacKey\",function () {\r",
+							"      pm.expect('dacKey').to.have.string('dacKey');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ignore-auth",
+						"type": "text",
+						"value": "true"
+					}
+				],
+				"url": "http://ip-management-api-Dev.us-east-1.elasticbeanstalk.com/ipauth/party/100/ips"
+			},
+			"response": []
+		},
+		{
+			"name": "UBX Dev - Content Validation API",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ignore-auth",
+						"value": "true"
+					}
+				],
+				"url": {
+					"raw": "http://content-api-v2-dev.eu-west-1.elasticbeanstalk.com/content/book?dac=C2015-0-79283-8",
+					"protocol": "http",
+					"host": [
+						"content-api-v2-dev",
+						"eu-west-1",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"content",
+						"book"
+					],
+					"query": [
+						{
+							"key": "dac",
+							"value": "C2015-0-79283-8"
+						}
+					]
+				},
+				"description": " For Librarians -- Available on Taylor & Francis eBooks >> "
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "77bccf51-c86f-41b5-805c-40228d576513",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "fd84a399-dfee-4c49-927a-87482e7e3215",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
