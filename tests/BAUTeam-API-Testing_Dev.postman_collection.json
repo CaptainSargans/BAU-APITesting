@@ -98,25 +98,31 @@
 			"response": []
 		},
 		{
-			"name": "UBX Dev - Elastic bean search API - PAPI",
+			"name": "UBW Dev - Auth user login",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "8f5afbad-9d22-4f1c-8361-e50ad5df4224",
+						"id": "d182a262-eb7b-4a0d-8913-2330ceed2989",
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
+							"var jsonData = pm.response.json(); \r",
+							"pm.test(\"Verify Json values\", function () { \r",
+							"    pm.expect(jsonData.data.message).is.to.equal(\"Missing credentials\"); \r",
+							"   // pm.expect(jsonData.data.versionTypeCode).is.to.equal(\"EBK\"); \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
 							"});\r",
 							"\r",
 							"pm.test(\"response should be okay to process\", function () {\r",
-							"    pm.response.to.not.be.error;\r",
+							" //   pm.response.to.not.be.error;\r",
 							"//    pm.response.to.have.jsonBody(\"\");\r",
 							"    pm.response.to.not.have.jsonBody(\"error\");\r",
 							"})\r",
 							"\r",
 							"pm.test(\"response must be valid and have a body\", function () {\r",
-							"     pm.response.to.be.ok;\r",
+							"  //   pm.response.to.be.ok;\r",
 							"     pm.response.to.be.withBody;\r",
 							"     pm.response.to.be.json;\r",
 							"});\r",
@@ -143,7 +149,7 @@
 							"\r",
 							"var jsonData = pm.response.json(); \r",
 							"pm.test(\"Verify Json values\", function () { \r",
-							"    pm.expect(jsonData.metadata.status).is.to.equal(\"success\"); \r",
+							"    pm.expect(jsonData.metadata.status).is.to.equal(\"failure\"); \r",
 							"   // pm.expect(jsonData.data.versionTypeCode).is.to.equal(\"EBK\"); \r",
 							"});"
 						],
@@ -151,21 +157,6 @@
 					}
 				}
 			],
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "ignore-auth",
-						"value": "true"
-					}
-				],
-				"url": "http://product-api-dev.us-east-1.elasticbeanstalk.com/products/titles/9780203051450",
-				"description": " For Librarians -- Available on Taylor & Francis eBooks >> "
-			},
-			"response": []
-		},
-		{
-			"name": "UBW Dev - Auth user login",
 			"request": {
 				"method": "POST",
 				"header": [
