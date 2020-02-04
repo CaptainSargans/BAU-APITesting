@@ -7,282 +7,521 @@
 	},
 	"item": [
 		{
-			"name": "UBX  Dev - API Test - Product Validation",
-			"event": [
+			"name": "PositiveCases",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"id": "83dfe193-749f-4685-b159-2d26d635b917",
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"response should be okay to process\", function () {\r",
-							"    pm.response.to.not.be.error;\r",
-							"//    pm.response.to.have.jsonBody(\"\");\r",
-							"    pm.response.to.not.have.jsonBody(\"error\");\r",
-							"})\r",
-							"\r",
-							"pm.test(\"response must be valid and have a body\", function () {\r",
-							"     pm.response.to.be.ok;\r",
-							"     pm.response.to.be.withBody;\r",
-							"     pm.response.to.be.json;\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Check if pattern is in target string : eIsbn\",function () {\r",
-							"      pm.expect('eIsbn').to.have.string('eIsbn');\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Check if pattern is in target string : doi\",function () {\r",
-							"      pm.expect('doi').to.have.string('doi');\r",
-							"});\r",
-							"  \r",
-							"pm.test(\"Check if pattern is in target string : dacKey\",function () {\r",
-							"      pm.expect('dacKey').to.have.string('dacKey');\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Check if pattern is in target string : success\",function () {\r",
-							"      pm.expect('success').to.have.string('success');\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Content-Type is present\", function () {\r",
-							"    pm.response.to.have.header(\"Content-Type\");\r",
-							"});\r",
-							"\r",
-							"var jsonData = pm.response.json(); \r",
-							"pm.test(\"Verify Json values\", function () { \r",
-							"    pm.expect(jsonData.metadata.status).is.to.equal(\"success\"); \r",
-							"   // pm.expect(jsonData.data.versionTypeCode).is.to.equal(\"EBK\"); \r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "ignore-auth",
-						"value": "true"
-					}
-				],
-				"url": {
-					"raw": "http://product-api-dev.us-east-1.elasticbeanstalk.com/products/titles/?responseType=validation&isbns=9780203085370",
-					"protocol": "http",
-					"host": [
-						"product-api-dev",
-						"us-east-1",
-						"elasticbeanstalk",
-						"com"
-					],
-					"path": [
-						"products",
-						"titles",
-						""
-					],
-					"query": [
+					"name": "UBX  Dev - API Test - Product Validation",
+					"event": [
 						{
-							"key": "responseType",
-							"value": "validation"
+							"listen": "test",
+							"script": {
+								"id": "83dfe193-749f-4685-b159-2d26d635b917",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"response should be okay to process\", function () {\r",
+									"    pm.response.to.not.be.error;\r",
+									"//    pm.response.to.have.jsonBody(\"\");\r",
+									"    pm.response.to.not.have.jsonBody(\"error\");\r",
+									"})\r",
+									"\r",
+									"pm.test(\"response must be valid and have a body\", function () {\r",
+									"     pm.response.to.be.ok;\r",
+									"     pm.response.to.be.withBody;\r",
+									"     pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if pattern is in target string : eIsbn\",function () {\r",
+									"      pm.expect('eIsbn').to.have.string('eIsbn');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if pattern is in target string : doi\",function () {\r",
+									"      pm.expect('doi').to.have.string('doi');\r",
+									"});\r",
+									"  \r",
+									"pm.test(\"Check if pattern is in target string : dacKey\",function () {\r",
+									"      pm.expect('dacKey').to.have.string('dacKey');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if pattern is in target string : success\",function () {\r",
+									"      pm.expect('success').to.have.string('success');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json(); \r",
+									"pm.test(\"Verify Json values\", function () { \r",
+									"    pm.expect(jsonData.metadata.status).is.to.equal(\"success\"); \r",
+									"   // pm.expect(jsonData.data.versionTypeCode).is.to.equal(\"EBK\"); \r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "ignore-auth",
+								"value": "true"
+							}
+						],
+						"url": {
+							"raw": "http://product-api-dev.us-east-1.elasticbeanstalk.com/products/titles/?responseType=validation&isbns=9780203085370",
+							"protocol": "http",
+							"host": [
+								"product-api-dev",
+								"us-east-1",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"products",
+								"titles",
+								""
+							],
+							"query": [
+								{
+									"key": "responseType",
+									"value": "validation"
+								},
+								{
+									"key": "isbns",
+									"value": "9780203085370"
+								}
+							]
 						},
-						{
-							"key": "isbns",
-							"value": "9780203085370"
-						}
-					]
+						"description": " For Librarians -- Available on Taylor & Francis eBooks >> "
+					},
+					"response": []
 				},
-				"description": " For Librarians -- Available on Taylor & Francis eBooks >> "
-			},
-			"response": []
-		},
-		{
-			"name": "UBW Dev - Auth user login",
-			"event": [
 				{
-					"listen": "test",
-					"script": {
-						"id": "d182a262-eb7b-4a0d-8913-2330ceed2989",
-						"exec": [
-							"var jsonData = pm.response.json(); \r",
-							"pm.test(\"Verify Json values\", function () { \r",
-							"    pm.expect(jsonData.data.message).is.to.equal(\"Missing credentials\"); \r",
-							"   // pm.expect(jsonData.data.versionTypeCode).is.to.equal(\"EBK\"); \r",
-							"});\r",
-							"\r",
-							"pm.test(\"Status code is 404\", function () {\r",
-							"    pm.response.to.have.status(404);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"response should be okay to process\", function () {\r",
-							" //   pm.response.to.not.be.error;\r",
-							"//    pm.response.to.have.jsonBody(\"\");\r",
-							"    pm.response.to.not.have.jsonBody(\"error\");\r",
-							"})\r",
-							"\r",
-							"pm.test(\"response must be valid and have a body\", function () {\r",
-							"  //   pm.response.to.be.ok;\r",
-							"     pm.response.to.be.withBody;\r",
-							"     pm.response.to.be.json;\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Check if pattern is in target string : eIsbn\",function () {\r",
-							"      pm.expect('eIsbn').to.have.string('eIsbn');\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Check if pattern is in target string : doi\",function () {\r",
-							"      pm.expect('doi').to.have.string('doi');\r",
-							"});\r",
-							"  \r",
-							"pm.test(\"Check if pattern is in target string : dacKey\",function () {\r",
-							"      pm.expect('dacKey').to.have.string('dacKey');\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Check if pattern is in target string : success\",function () {\r",
-							"      pm.expect('success').to.have.string('success');\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Content-Type is present\", function () {\r",
-							"    pm.response.to.have.header(\"Content-Type\");\r",
-							"});\r",
-							"\r",
-							"var jsonData = pm.response.json(); \r",
-							"pm.test(\"Verify Json values\", function () { \r",
-							"    pm.expect(jsonData.metadata.status).is.to.equal(\"failure\"); \r",
-							"   // pm.expect(jsonData.data.versionTypeCode).is.to.equal(\"EBK\"); \r",
-							"});"
+					"name": "UBX Dev - IPmanagement-api",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "80ef27c1-32ce-462b-80c3-7f34d5b77cae",
+								"exec": [
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(3000);",
+									"});",
+									"",
+									"pm.test(\"Check if object contains the property\", function () {",
+									"     pm.expect({\"status\": \"\"}).to.have.property('status');",
+									"});",
+									"",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"OK\");",
+									"});",
+									"",
+									"pm.test(\"Body matches success\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"success\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"var jsonData = pm.response.json(); ",
+									"pm.test(\"Verify Json values\", function () { ",
+									"    pm.expect(jsonData.metadata.status).is.to.equal(\"success\"); ",
+									"   //  pm.expect(jsonData.metadata.status).is.to.equal(\"success\"); ",
+									"   //  pm.expect(jsonData.data.versionTypeCode).is.to.equal(\"EBK\"); ",
+									"});",
+									"",
+									"pm.test(\"response should be okay to process\", function () {",
+									"    pm.response.to.not.be.error;",
+									"   // pm.response.to.have.jsonBody(\"\");",
+									"    pm.response.to.not.have.jsonBody(\"error\");",
+									"})",
+									"",
+									"pm.test(\"response must be valid and have a body\", function () {",
+									"     pm.response.to.be.ok;",
+									"     pm.response.to.be.withBody;",
+									"     pm.response.to.be.json;",
+									"});",
+									"",
+									"",
+									"pm.test(\"Check if object contains the property\", function () {",
+									"     pm.expect({\"status\": \"\"}).to.have.property('status');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "ignore-auth",
+								"type": "text",
+								"value": "true"
+							}
 						],
-						"type": "text/javascript"
-					}
+						"url": "http://ip-management-api-Dev.us-east-1.elasticbeanstalk.com/ipauth/party/100/ips"
+					},
+					"response": []
+				},
+				{
+					"name": "UBX Dev - Content Validation API",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "ignore-auth",
+								"value": "true"
+							}
+						],
+						"url": {
+							"raw": "http://content-api-v2-dev.eu-west-1.elasticbeanstalk.com/content/book?dac=C2015-0-79283-8",
+							"protocol": "http",
+							"host": [
+								"content-api-v2-dev",
+								"eu-west-1",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"content",
+								"book"
+							],
+							"query": [
+								{
+									"key": "dac",
+									"value": "C2015-0-79283-8"
+								}
+							]
+						},
+						"description": " For Librarians -- Available on Taylor & Francis eBooks >> "
+					},
+					"response": []
+				},
+				{
+					"name": "UBW Dev - Auth user login - Valid Credentials",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d182a262-eb7b-4a0d-8913-2330ceed2989",
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"response should be okay to process\", function () {\r",
+									" //   pm.response.to.not.be.error;\r",
+									"//    pm.response.to.have.jsonBody(\"\");\r",
+									"    pm.response.to.not.have.jsonBody(\"error\");\r",
+									"})\r",
+									"\r",
+									"pm.test(\"response must be valid and have a body\", function () {\r",
+									"  //   pm.response.to.be.ok;\r",
+									"     pm.response.to.be.withBody;\r",
+									"     pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if pattern is in target string : eIsbn\",function () {\r",
+									"      pm.expect('eIsbn').to.have.string('eIsbn');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if pattern is in target string : doi\",function () {\r",
+									"      pm.expect('doi').to.have.string('doi');\r",
+									"});\r",
+									"  \r",
+									"pm.test(\"Check if pattern is in target string : dacKey\",function () {\r",
+									"      pm.expect('dacKey').to.have.string('dacKey');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if pattern is in target string : success\",function () {\r",
+									"      pm.expect('success').to.have.string('success');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json(); \r",
+									"pm.test(\"Verify Json values\", function () { \r",
+									"    pm.expect(jsonData.metadata.status).is.to.equal(\"success\"); \r",
+									"   // pm.expect(jsonData.data.versionTypeCode).is.to.equal(\"EBK\"); \r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"mahadev.sannabilagi@informa.com\",\r\n  \"password\": \"Informa@123\"\r\n}"
+						},
+						"url": "https://api-dev.taylorandfrancis.com/v2/auth/user/auth/login"
+					},
+					"response": []
 				}
 			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "ignore-auth",
-						"value": "true",
-						"type": "text",
-						"disabled": true
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"username\": \"mahadev.sannabilagi@informa.com\",\r\n  \"password\": \"Informa@123\",\r\n  \"isRememberMe\": false,\r\n  \"clientId\": \"41dbb0422c948e7ef51a11698ff2ad1d9988b5c6cde02073023eaa7d47ece20e\"\r\n}"
-				},
-				"url": "https://api-dev.taylorandfrancis.com/v2/auth/user/auth/login"
-			},
-			"response": []
+			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "UBX Dev - IPmanagement-api",
-			"event": [
+			"name": "NegativeCases",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"id": "80ef27c1-32ce-462b-80c3-7f34d5b77cae",
-						"exec": [
-							"",
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"",
-							"pm.test(\"Response time is less than 200ms\", function () {",
-							"    pm.expect(pm.response.responseTime).to.be.below(3000);",
-							"});",
-							"",
-							"pm.test(\"Check if object contains the property\", function () {",
-							"     pm.expect({\"status\": \"\"}).to.have.property('status');",
-							"});",
-							"",
-							"pm.test(\"Status code name has string\", function () {",
-							"    pm.response.to.have.status(\"OK\");",
-							"});",
-							"",
-							"pm.test(\"Body matches success\", function () {",
-							"    pm.expect(pm.response.text()).to.include(\"success\");",
-							"});",
-							"",
-							"pm.test(\"Content-Type is present\", function () {",
-							"    pm.response.to.have.header(\"Content-Type\");",
-							"});",
-							"",
-							"var jsonData = pm.response.json(); ",
-							"pm.test(\"Verify Json values\", function () { ",
-							"    pm.expect(jsonData.metadata.status).is.to.equal(\"success\"); ",
-							"   //  pm.expect(jsonData.metadata.status).is.to.equal(\"success\"); ",
-							"   //  pm.expect(jsonData.data.versionTypeCode).is.to.equal(\"EBK\"); ",
-							"});",
-							"",
-							"pm.test(\"response should be okay to process\", function () {",
-							"    pm.response.to.not.be.error;",
-							"   // pm.response.to.have.jsonBody(\"\");",
-							"    pm.response.to.not.have.jsonBody(\"error\");",
-							"})",
-							"",
-							"pm.test(\"response must be valid and have a body\", function () {",
-							"     pm.response.to.be.ok;",
-							"     pm.response.to.be.withBody;",
-							"     pm.response.to.be.json;",
-							"});",
-							"",
-							"",
-							"pm.test(\"Check if object contains the property\", function () {",
-							"     pm.expect({\"status\": \"\"}).to.have.property('status');",
-							"});"
+					"name": "UBW Dev - Auth user login - Password incorrect",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d182a262-eb7b-4a0d-8913-2330ceed2989",
+								"exec": [
+									"var jsonData = pm.response.json(); \r",
+									"pm.test(\"Verify Json values\", function () { \r",
+									"    pm.expect(jsonData.data.message.key).is.to.equal(\"PASSWORD\"); \r",
+									"   // pm.expect(jsonData.data.versionTypeCode).is.to.equal(\"EBK\"); \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"response should be okay to process\", function () {\r",
+									" //   pm.response.to.not.be.error;\r",
+									"//    pm.response.to.have.jsonBody(\"\");\r",
+									"    pm.response.to.not.have.jsonBody(\"error\");\r",
+									"})\r",
+									"\r",
+									"pm.test(\"response must be valid and have a body\", function () {\r",
+									"  //   pm.response.to.be.ok;\r",
+									"     pm.response.to.be.withBody;\r",
+									"     pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if pattern is in target string : eIsbn\",function () {\r",
+									"      pm.expect('eIsbn').to.have.string('eIsbn');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if pattern is in target string : doi\",function () {\r",
+									"      pm.expect('doi').to.have.string('doi');\r",
+									"});\r",
+									"  \r",
+									"pm.test(\"Check if pattern is in target string : dacKey\",function () {\r",
+									"      pm.expect('dacKey').to.have.string('dacKey');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if pattern is in target string : success\",function () {\r",
+									"      pm.expect('success').to.have.string('success');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json(); \r",
+									"pm.test(\"Verify Json values\", function () { \r",
+									"    pm.expect(jsonData.metadata.status).is.to.equal(\"failure\"); \r",
+									"   // pm.expect(jsonData.data.versionTypeCode).is.to.equal(\"EBK\"); \r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
 						],
-						"type": "text/javascript"
-					}
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"mahadev.sannabilagi@informa.com\",\r\n  \"password\": \"Informa@123123\"\r\n}"
+						},
+						"url": "https://api-dev.taylorandfrancis.com/v2/auth/user/auth/login"
+					},
+					"response": []
+				},
+				{
+					"name": "UBW Dev - Auth user login - Invalid email address",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d182a262-eb7b-4a0d-8913-2330ceed2989",
+								"exec": [
+									"\r",
+									"var jsonData = pm.response.json(); \r",
+									"pm.test(\"Verify Json values\", function () { \r",
+									"    pm.expect(jsonData.metadata.status).is.to.equal(\"failure\"); \r",
+									"    pm.expect(jsonData.metadata.message.key).is.to.equal(\"EMAIL_ADDRESS\");\r",
+									"    pm.expect(jsonData.metadata.message.value).is.to.equal(\"Invalid email address.\"); \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"response should be okay to process\", function () {\r",
+									" //   pm.response.to.not.be.error;\r",
+									"//    pm.response.to.have.jsonBody(\"\");\r",
+									"    pm.response.to.not.have.jsonBody(\"error\");\r",
+									"})\r",
+									"\r",
+									"pm.test(\"response must be valid and have a body\", function () {\r",
+									"  //   pm.response.to.be.ok;\r",
+									"     pm.response.to.be.withBody;\r",
+									"     pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if pattern is in target string : eIsbn\",function () {\r",
+									"      pm.expect('eIsbn').to.have.string('eIsbn');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if pattern is in target string : doi\",function () {\r",
+									"      pm.expect('doi').to.have.string('doi');\r",
+									"});\r",
+									"  \r",
+									"pm.test(\"Check if pattern is in target string : dacKey\",function () {\r",
+									"      pm.expect('dacKey').to.have.string('dacKey');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if pattern is in target string : success\",function () {\r",
+									"      pm.expect('success').to.have.string('success');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json(); \r",
+									"pm.test(\"Verify Json values\", function () { \r",
+									"    pm.expect(jsonData.metadata.status).is.to.equal(\"failure\"); \r",
+									"   // pm.expect(jsonData.data.versionTypeCode).is.to.equal(\"EBK\"); \r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"mahadevmahadev.sannabilagi@informa.com\",\r\n  \"password\": \"Informa@123\"\r\n}"
+						},
+						"url": "https://api-dev.taylorandfrancis.com/v2/auth/user/auth/login"
+					},
+					"response": []
+				},
+				{
+					"name": "UBW Dev - Auth user login - Missing credentials",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d182a262-eb7b-4a0d-8913-2330ceed2989",
+								"exec": [
+									"var jsonData = pm.response.json(); \r",
+									"pm.test(\"Verify Json values\", function () { \r",
+									"    pm.expect(jsonData.data.message).is.to.equal(\"Missing credentials\"); \r",
+									"   // pm.expect(jsonData.data.versionTypeCode).is.to.equal(\"EBK\"); \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"response should be okay to process\", function () {\r",
+									" //   pm.response.to.not.be.error;\r",
+									"//    pm.response.to.have.jsonBody(\"\");\r",
+									"    pm.response.to.not.have.jsonBody(\"error\");\r",
+									"})\r",
+									"\r",
+									"pm.test(\"response must be valid and have a body\", function () {\r",
+									"  //   pm.response.to.be.ok;\r",
+									"     pm.response.to.be.withBody;\r",
+									"     pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if pattern is in target string : eIsbn\",function () {\r",
+									"      pm.expect('eIsbn').to.have.string('eIsbn');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if pattern is in target string : doi\",function () {\r",
+									"      pm.expect('doi').to.have.string('doi');\r",
+									"});\r",
+									"  \r",
+									"pm.test(\"Check if pattern is in target string : dacKey\",function () {\r",
+									"      pm.expect('dacKey').to.have.string('dacKey');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if pattern is in target string : success\",function () {\r",
+									"      pm.expect('success').to.have.string('success');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json(); \r",
+									"pm.test(\"Verify Json values\", function () { \r",
+									"    pm.expect(jsonData.metadata.status).is.to.equal(\"failure\"); \r",
+									"   // pm.expect(jsonData.data.versionTypeCode).is.to.equal(\"EBK\"); \r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"\",\r\n  \"password\": \"\"\r\n}"
+						},
+						"url": "https://api-dev.taylorandfrancis.com/v2/auth/user/auth/login"
+					},
+					"response": []
 				}
 			],
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "ignore-auth",
-						"type": "text",
-						"value": "true"
-					}
-				],
-				"url": "http://ip-management-api-Dev.us-east-1.elasticbeanstalk.com/ipauth/party/100/ips"
-			},
-			"response": []
-		},
-		{
-			"name": "UBX Dev - Content Validation API",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "ignore-auth",
-						"value": "true"
-					}
-				],
-				"url": {
-					"raw": "http://content-api-v2-dev.eu-west-1.elasticbeanstalk.com/content/book?dac=C2015-0-79283-8",
-					"protocol": "http",
-					"host": [
-						"content-api-v2-dev",
-						"eu-west-1",
-						"elasticbeanstalk",
-						"com"
-					],
-					"path": [
-						"content",
-						"book"
-					],
-					"query": [
-						{
-							"key": "dac",
-							"value": "C2015-0-79283-8"
-						}
-					]
-				},
-				"description": " For Librarians -- Available on Taylor & Francis eBooks >> "
-			},
-			"response": []
+			"protocolProfileBehavior": {}
 		}
 	],
 	"event": [
