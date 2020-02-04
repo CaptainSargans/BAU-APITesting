@@ -218,8 +218,8 @@
 								"id": "d182a262-eb7b-4a0d-8913-2330ceed2989",
 								"exec": [
 									"\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
 									"});\r",
 									"\r",
 									"pm.test(\"response should be okay to process\", function () {\r",
@@ -256,9 +256,18 @@
 									"\r",
 									"var jsonData = pm.response.json(); \r",
 									"pm.test(\"Verify Json values\", function () { \r",
-									"    pm.expect(jsonData.metadata.status).is.to.equal(\"success\"); \r",
+									"  //  pm.expect(jsonData.metadata.status).is.to.equal(\"success\"); \r",
 									"   // pm.expect(jsonData.data.versionTypeCode).is.to.equal(\"EBK\"); \r",
-									"});"
+									"});\r",
+									"\r",
+									"\r",
+									"var jsonData = pm.response.json(); \r",
+									"pm.test(\"Verify Json values\", function () { \r",
+									"    pm.expect(jsonData.metadata.status).is.to.equal(\"failure\"); \r",
+									"    pm.expect(jsonData.metadata.message.key).is.to.equal(\"USER_BLOCKED\");\r",
+									"    pm.expect(jsonData.metadata.message.value).is.to.equal(\"User Blocked\"); \r",
+									"});\r",
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -275,7 +284,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"username\": \"mahadev.sannabilagi@informa.com\",\r\n  \"password\": \"Informa@123\"\r\n}"
+							"raw": "{\r\n  \"username\": \"devapitest@mailinator.com\",\r\n  \"password\": \"Informa@123dev\"\r\n}"
 						},
 						"url": "https://api-dev.taylorandfrancis.com/v2/auth/user/auth/login"
 					},
@@ -297,8 +306,9 @@
 								"exec": [
 									"var jsonData = pm.response.json(); \r",
 									"pm.test(\"Verify Json values\", function () { \r",
-									"    pm.expect(jsonData.data.message.key).is.to.equal(\"PASSWORD\"); \r",
-									"   // pm.expect(jsonData.data.versionTypeCode).is.to.equal(\"EBK\"); \r",
+									"    pm.expect(jsonData.metadata.status).is.to.equal(\"failure\"); \r",
+									"    pm.expect(jsonData.metadata.message.key).is.to.equal(\"USER_BLOCKED\");\r",
+									"    pm.expect(jsonData.metadata.message.value).is.to.equal(\"User Blocked\"); \r",
 									"});\r",
 									"\r",
 									"pm.test(\"Status code is 404\", function () {\r",
@@ -358,7 +368,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"username\": \"mahadev.sannabilagi@informa.com\",\r\n  \"password\": \"Informa@123123\"\r\n}"
+							"raw": "{\r\n  \"username\": \"devapitest@mailinator.com\",\r\n  \"password\": \"Informa@123123\"\r\n}"
 						},
 						"url": "https://api-dev.taylorandfrancis.com/v2/auth/user/auth/login"
 					},
